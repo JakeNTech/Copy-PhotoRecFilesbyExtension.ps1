@@ -150,9 +150,8 @@ if (!($PathToAnalyze.EndsWith("\*"))){
     $PercFileProgress=[int]($FileCounter/$NrFileToAnalyze*100)
     Write-Progress -id 2 -ParentId 1 -Activity "Working on $CustomFileFilter Files (Overwrite =$OverWriteDuplicated)..." -CurrentOperation "($PercFileProgress%) [$FileCounter of $NrFileToAnalyze] - Copying file $Filename to $FolderDest" -Status "Please wait." -PercentComplete ($PercFileProgress) # progress of the file copy
     
-    Copy-Item -Path $fileSource -Destination $fileDest # Copy
+    #Copy-Item -Path $fileSource -Destination $fileDest # Copy
+    Move-Item -Path $fileSource -Destination $fileDest 
+    
 }
-
 }
- 
-
